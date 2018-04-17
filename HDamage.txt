@@ -61,26 +61,26 @@
 
       if max_hp_increased or max_hp_decreased then
         if max_hp_increased then
-          crawl.mpr("<green>You now have " .. current_hp .. "/" .. max_hp .. " hp.</green>")
+          crawl.mpr("<green>あなたの現在のHPは" .. current_hp .. "/" .. max_hp .. "だ。</green>")
         else
-          crawl.mpr("<yellow>You now have " .. current_hp .. "/" .. max_hp .. " hp.</yellow>")
+          crawl.mpr("<yellow>あなたの現在のHPは" .. current_hp .. "/" .. max_hp .. "だ。</yellow>")
         end
       else
         --On losing health
         if (current_hp < previous_hp) then
           if current_hp <= (max_hp * 0.30) then
-            crawl.mpr("<red>You take " .. hp_difference .. " damage,</red><lightred> and have " .. current_hp .. "/" .. max_hp .. " hp.</lightred>")
+            crawl.mpr("<red>あなたは" .. hp_difference .. "ダメージを受けた。</red><lightred>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</lightred>")
           elseif current_hp <= (max_hp * 0.50) then
-            crawl.mpr("<red>You take " .. hp_difference .. " damage, and have " .. current_hp .. "/" .. max_hp .. " hp.</red>")
+            crawl.mpr("<red>あなたは" .. hp_difference .. "ダメージを受けた。(現在HP: " .. current_hp .. "/" .. max_hp .. ")</red>")
           elseif current_hp <= (max_hp *  0.70) then
-            crawl.mpr("<red>You take " .. hp_difference .. " damage,</red><yellow> and have " .. current_hp .. "/" .. max_hp .. " hp.</yellow>")
+            crawl.mpr("<red>あなたは" .. hp_difference .. "ダメージを受けた。</red><yellow>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</yellow>")
           elseif current_hp <= (max_hp * 0.90) then
-            crawl.mpr("<red>You take " .. hp_difference .. " damage,</red><lightgrey> and have " .. current_hp .. "/" .. max_hp .. " hp.</lightgrey>")
+            crawl.mpr("<red>あなたは" .. hp_difference .. "ダメージを受けた。</red><lightgrey>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</lightgrey>")
           else
-            crawl.mpr("<red>You take " .. hp_difference .. " damage,</red><green> and have " .. current_hp .. "/" .. max_hp .. " hp.</green>")
+            crawl.mpr("<red>あなたは" .. hp_difference .. "ダメージを受けた。</red><green>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</green>")
           end
           if hp_difference > (max_hp * 0.20) then
-            crawl.mpr("<lightred>MASSIVE DAMAGE!!</lightred>")
+            crawl.mpr("<lightred>大ダメージだ!!</lightred>")
           end
         end
 
@@ -90,19 +90,19 @@
           local health_inturn = (0 - hp_difference)
           if (health_inturn > 1) and not (current_hp == max_hp) then
             if current_hp <= (max_hp * 0.30) then
-              crawl.mpr("<green>You regained " .. health_inturn .. " hp,</green><lightred> and now have " .. current_hp .. "/" .. max_hp .. " hp.</lightred>")
+              crawl.mpr("<green>あなたのHPが" .. health_inturn .. "回復した。</green><lightred>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</lightred>")
             elseif current_hp <= (max_hp * 0.50) then
-              crawl.mpr("<green>You regained " .. health_inturn .. " hp,</green><red> and now have " .. current_hp .. "/" .. max_hp .. " hp.</red>")
+              crawl.mpr("<green>あなたのHPが" .. health_inturn .. "回復した。</green><red>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</red>")
             elseif current_hp <= (max_hp *  0.70) then
-              crawl.mpr("<green>You regained " .. health_inturn .. " hp,</green><yellow> and now have " .. current_hp .. "/" .. max_hp .. " hp.</yellow>")
+              crawl.mpr("<green>あなたのHPが" .. health_inturn .. "回復した。</green><yellow>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</yellow>")
             elseif current_hp <= (max_hp * 0.90) then
-              crawl.mpr("<green>You regained " .. health_inturn .. " hp,</green><lightgrey> and now have " .. current_hp .. "/" .. max_hp .. " hp.</lightgrey>")
+              crawl.mpr("<green>あなたのHPが" .. health_inturn .. "回復した。</green><lightgrey>(現在HP: " .. current_hp .. "/" .. max_hp .. ")</lightgrey>")
             else
-              crawl.mpr("<green>You regained " .. health_inturn .. " hp, and now have " .. current_hp .. "/" .. max_hp .. " hp.</green>")
+              crawl.mpr("<green>あなたのHPが" .. health_inturn .. "回復した。(現在HP: " .. current_hp .. "/" .. max_hp .. ")</green>")
             end
           end
           if (current_hp == max_hp) then
-            crawl.mpr("<green>Health restored: " .. current_hp .. "</green>")
+            crawl.mpr("<green>HPが全快した。(最大HP: " .. current_hp .. ")</green>")
           end
         end
 
@@ -112,26 +112,26 @@
           local mp_inturn = (0 - mp_difference)
           if (mp_inturn > 1) and not (current_mp == max_mp) then
             if current_mp < (max_mp * 0.25) then
-              crawl.mpr("<lightcyan>You regained " .. mp_inturn .. " mp,</lightcyan><red> and now have " .. current_mp .. "/" .. max_mp .. " mp.</red>")
+              crawl.mpr("<lightcyan>あなたのMPが" .. mp_inturn .. "回復した。</lightcyan><red>(現在MP: " .. current_mp .. "/" .. max_mp .. ")</red>")
             elseif current_mp < (max_mp * 0.50) then
-              crawl.mpr("<lightcyan>You regained " .. mp_inturn .. " mp,</lightcyan><yellow> and now have " .. current_mp .. "/" .. max_mp .. " mp.</yellow>")
+              crawl.mpr("<lightcyan>あなたのMPが" .. mp_inturn .. "回復した。</lightcyan><yellow>(現在MP: " .. current_mp .. "/" .. max_mp .. ")</yellow>")
             else
-              crawl.mpr("<lightcyan>You regained " .. mp_inturn .. " mp,</lightcyan><green> and now have " .. current_mp .. "/" .. max_mp .. " mp.</green>")
+              crawl.mpr("<lightcyan>あなたのMPが" .. mp_inturn .. "回復した。</lightcyan><green>(現在MP: " .. current_mp .. "/" .. max_mp .. ")</green>")
             end
           end
           if (current_mp == max_mp) then
-            crawl.mpr("<lightcyan>MP restored: " .. current_mp .. "</lightcyan>")
+            crawl.mpr("<lightcyan>MPが全快した。(最大MP: " .. current_mp .. ")</lightcyan>")
           end
         end
 
         --On losing magic
         if current_mp < previous_mp then
           if current_mp <= (max_mp / 5) then
-            crawl.mpr("<lightcyan>You now have </lightcyan><red>" .. current_mp .. "/" ..max_mp .." mp.</red>")
+            crawl.mpr("<lightcyan>あなたの現在のMPは</lightcyan><red>" .. current_mp .. "/" ..max_mp .."</red><lightcyan>だ。</lightcyan>")
           elseif current_mp <= (max_mp / 2) then
-            crawl.mpr("<lightcyan>You now have </lightcyan><yellow>" .. current_mp .. "/" ..max_mp .." mp.</yellow>")
+            crawl.mpr("<lightcyan>あなたの現在のMPは</lightcyan><yellow>" .. current_mp .. "/" ..max_mp .."</yellow><lightcyan>だ。</lightcyan>")
           else
-            crawl.mpr("<lightcyan>You now have </lightcyan><green>" .. current_mp .. "/" ..max_mp .." mp.</green>")
+            crawl.mpr("<lightcyan>あなたの現在のMPは</lightcyan><green>" .. current_mp .. "/" ..max_mp .."</green><lightcyan>だ。</lightcyan>")
           end
         end
       end
